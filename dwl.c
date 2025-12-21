@@ -2154,7 +2154,6 @@ rendermon(struct wl_listener *listener, void *data)
 	Monitor *m = wl_container_of(listener, m, frame);
 	Client *c;
 	struct wlr_output_state pending = {0};
-	struct timespec now;
 
 	/* Render if no XDG clients have an outstanding resize and are visible on
 	 * this monitor. */
@@ -2166,9 +2165,10 @@ rendermon(struct wl_listener *listener, void *data)
 	wlr_scene_output_commit(m->scene_output, NULL);
 
 skip:
-	/* Let clients know a frame has been rendered */
-	clock_gettime(CLOCK_MONOTONIC, &now);
-	wlr_scene_output_send_frame_done(m->scene_output, &now);
+	/* Let clients know a frame has been rendered. Pass NULL to let wlroots
+	 * determine the timestamp, which is required for correct timing when
+	 * input and output clocks may diverge (e.g., PRIME GPU offload). */
+	wlr_scene_output_send_frame_done(m->scene_output, NULL);
 	wlr_output_state_finish(&pending);
 }
 
