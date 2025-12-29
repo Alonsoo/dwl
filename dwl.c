@@ -1615,8 +1615,7 @@ keybinding(uint32_t mods, xkb_keysym_t sym)
 	 */
 	const Key *k;
 	for (k = keys; k < END(keys); k++) {
-		if (CLEANMASK(mods) == CLEANMASK(k->mod)
-				&& xkb_keysym_to_lower(sym) == xkb_keysym_to_lower(k->keysym)
+		if (CLEANMASK(mods) == CLEANMASK(k->mod) && sym == k->keysym
 				&& k->func) {
 			k->func(&k->arg);
 			return 1;
@@ -1646,10 +1645,12 @@ keypress(struct wl_listener *listener, void *data)
 	wlr_idle_notifier_v1_notify_activity(idle_notifier, seat);
 
 	/* On _press_ if there is no active screen locker,
-	 * attempt to process a compositor keybinding. */
+	 * attempt to process a compositor keybinding.
+	 * Number keys (10 <= keycode <= 18 for 1-9) are statically converted. */
 	if (!locked && event->state == WL_KEYBOARD_KEY_STATE_PRESSED) {
 		for (i = 0; i < nsyms; i++)
-			handled = keybinding(mods, syms[i]) || handled;
+			handled = keybinding(mods, (10 <= keycode && keycode <= 18) ?
+					keycode + 39 : xkb_keysym_to_lower(syms[i])) || handled;
 	}
 
 	if (handled && group->wlr_group->keyboard.repeat_info.delay > 0) {
