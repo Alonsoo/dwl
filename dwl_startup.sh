@@ -17,7 +17,7 @@ foot --server &
 #someblocks -p  | dwlb -status-stdin all &
 /home/alonso/repos/scripts/statusbar/startup.sh &
 /home/alonso/repos/scripts/statusbar/bar.sh &
+
+
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=wlroots &
 dwlb
-
-
-exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=wlroots
