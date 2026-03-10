@@ -501,7 +501,8 @@ applyrules(Client *c)
 		if ((!r->title || strstr(title, r->title))
 				&& (!r->id || strstr(appid, r->id))) {
 			c->isfloating = r->isfloating;
-			c->opacity = r->opacity_unfocus;
+			c->opacity_unfocus = r->opacity_unfocus;
+			//c->opacity = r->opacity_unfocus;
 			newtags |= r->tags;
 			i = 0;
 			wl_list_for_each(m, &mons, link) {
