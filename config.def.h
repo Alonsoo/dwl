@@ -30,7 +30,7 @@ static const Rule rules[] = {
 	/* examples: */
 	{ "Gimp_EXAMPLE",	NULL,		0,	1,		default_opacity_unfocus,	-1 }, /* Start on currently visible tags floating, not tiled */
 	{ "firefox",		NULL,		0,	0,		1.00,				-1 },
-	{ "vivaldi",		NULL,		0,	0,		1.00,				-1 },
+	{ "Vivaldi",		NULL,		0,	0,		1.00,				-1 },
 	{ "zathura", 		NULL,		0,	0,		1.00,				-1 },
 	{ "spotify", 		NULL,		1 << 8,	0,		1.00,				-1 }, /* Start on ONLY tag "9" */
 };
