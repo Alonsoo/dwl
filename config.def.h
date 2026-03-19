@@ -127,7 +127,7 @@ static const enum libinput_config_tap_button_map button_map = LIBINPUT_CONFIG_TA
 #define UPDATE_VOL_COMMAND "/home/alonso/repos/scripts/statusbar/volume.sh > /home/alonso/repos/scripts/statusbar/status-text/temp-volume && mv /home/alonso/repos/scripts/statusbar/status-text/temp-volume /home/alonso/repos/scripts/statusbar/status-text/volume"
 #define UPDATE_BAR_COMMAND "/home/alonso/repos/scripts/statusbar/bar.sh"
 static const char *termcmd[] = { "foot", NULL };
-static const char *menucmd[] = { "j4-dmenu-desktop", "--dmenu", "wmenu -c -i -l 10", NULL };
+static const char *menucmd[] = { "j4-dmenu-desktop", "--dmenu", "wmenu-colors -c -i -l 10", NULL };
 static const char *wifipickercmd[] = { "/home/alonso/repos/scripts/wifi-picker", NULL };
 static const char *poweroptscmd[] = { "/home/alonso/repos/scripts/power-options.sh", NULL };
 static const char *volupcmd[] = { "/bin/sh", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ && " UPDATE_VOL_COMMAND " && " UPDATE_BAR_COMMAND, NULL };
