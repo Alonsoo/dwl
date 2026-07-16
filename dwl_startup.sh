@@ -9,7 +9,7 @@ for _prs in $_ps; do
  done
 
 # Start our applications
-swaybg --image /home/alonso/wallpapers/lowell-red_upscayl_4x_high-fidelity-4x.png &
+swaybg --image /home/alonso/wallpapers/lowell-fishing.webp &
 #mako &
 #waybar &
 foot --server &

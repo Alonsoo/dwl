@@ -9,11 +9,11 @@ static const int bypass_surface_visibility = 0;  /* 1 means idle inhibitors will
 static const int smartgaps                 = 0;  /* 1 means no outer gap when there is only one window */
 static int gaps                            = 1;  /* 1 means gaps between windows are added */
 static const unsigned int gappx            = 10; /* gap pixel between windows */
-static const unsigned int borderpx         = 0;  /* border pixel of windows */
-static const float rootcolor[]             = COLOR(0x222222ff);
-static const float bordercolor[]           = COLOR(0x444444ff);
-static const float focuscolor[]            = COLOR(0x005577ff);
-static const float urgentcolor[]           = COLOR(0xff0000ff);
+static const unsigned int borderpx         = 3;  /* border pixel of windows */
+static const float rootcolor[]             = COLOR(0x22222200);
+static const float bordercolor[]           = COLOR(0x44444400);
+static const float focuscolor[]            = COLOR(0xd79921ff);
+static const float urgentcolor[]           = COLOR(0xcc241dff);
 /* This conforms to the xdg-protocol. Set the alpha to zero to restore the old behavior */
 static const float fullscreen_bg[]         = {0.0f, 0.0f, 0.0f, 1.0f}; /* You can also use glsl colors */
 static const float default_opacity_unfocus = 0.92f;
@@ -31,6 +31,7 @@ static const Rule rules[] = {
 	{ "Gimp_EXAMPLE",	NULL,		0,	1,		default_opacity_unfocus,	-1 }, /* Start on currently visible tags floating, not tiled */
 	{ "firefox",		NULL,		0,	0,		1.00,				-1 },
 	{ "Vivaldi",		NULL,		0,	0,		1.00,				-1 },
+	{ "zen",		NULL,		0,	0,		1.00,				-1 },
 	{ "zathura", 		NULL,		0,	0,		1.00,				-1 },
 	{ "spotify", 		NULL,		1 << 8,	0,		1.00,				-1 }, /* Start on ONLY tag "9" */
 };
@@ -133,8 +134,8 @@ static const char *poweroptscmd[] = { "/home/alonso/repos/scripts/power-options.
 static const char *volupcmd[] = { "/bin/sh", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ && " UPDATE_VOL_COMMAND " && " UPDATE_BAR_COMMAND, NULL };
 static const char *voldowncmd[] = { "/bin/sh", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && " UPDATE_VOL_COMMAND " && " UPDATE_BAR_COMMAND, NULL };
 static const char *volmutecmd[] = { "/bin/sh", "-c", "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && " UPDATE_VOL_COMMAND " && " UPDATE_BAR_COMMAND, NULL };
-static const char *brupcmd[] = { "light", "-A", "10", NULL };
-static const char *brdowncmd[] = { "light", "-U", "10", NULL };
+static const char *brupcmd[] = { "light", "-A", "5", NULL };
+static const char *brdowncmd[] = { "light", "-U", "5", NULL };
 static const char *kbdbrupcmd[] = { "light", "-s", "sysfs/leds/tpacpi::kbd_backlight", "-A", "50", NULL };
 static const char *kbdbrdowncmd[] = { "light", "-s", "sysfs/leds/tpacpi::kbd_backlight", "-U", "50", NULL };
 
