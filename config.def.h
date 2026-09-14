@@ -138,6 +138,7 @@ static const char *brupcmd[] = { "light", "-A", "5", NULL };
 static const char *brdowncmd[] = { "light", "-U", "5", NULL };
 static const char *kbdbrupcmd[] = { "light", "-s", "sysfs/leds/tpacpi::kbd_backlight", "-A", "50", NULL };
 static const char *kbdbrdowncmd[] = { "light", "-s", "sysfs/leds/tpacpi::kbd_backlight", "-U", "50", NULL };
+static const char *zathuracmd[] = { "/home/alonso/repos/scripts/zathura_search_open.sh", NULL };
 
 static const Key keys[] = {
 	/* Note that Shift changes certain key codes: c -> C, 2 -> at, etc. */
@@ -146,6 +147,7 @@ static const Key keys[] = {
 	{ MODKEY,                    XKB_KEY_Return,     spawn,          {.v = termcmd} },
 	{ MODKEY,                    XKB_KEY_w,          spawn,          {.v = wifipickercmd} },
 	{ MODKEY,                    XKB_KEY_p,          spawn,          {.v = poweroptscmd} },
+	{ MODKEY,                    XKB_KEY_z,          spawn,          {.v = zathuracmd} },
 	{ 0,			     XKB_KEY_XF86AudioRaiseVolume, spawn, {.v = volupcmd} },
 	{ 0, 			     XKB_KEY_XF86AudioLowerVolume, spawn,  {.v = voldowncmd} },
 	{ 0, 			     XKB_KEY_XF86AudioMute, spawn, 	 {.v = volmutecmd} },
