@@ -16,7 +16,8 @@ static const float focuscolor[]            = COLOR(0xd79921ff);
 static const float urgentcolor[]           = COLOR(0xcc241dff);
 /* This conforms to the xdg-protocol. Set the alpha to zero to restore the old behavior */
 static const float fullscreen_bg[]         = {0.0f, 0.0f, 0.0f, 1.0f}; /* You can also use glsl colors */
-static const float default_opacity_unfocus = 0.92f;
+//static const float default_opacity_unfocus = 0.92f;
+static const float default_opacity_unfocus = 1.0f;
 static const float default_opacity_focus   = 1.0f;
 
 /* tagging - TAGCOUNT must be no greater than 31 */
@@ -29,10 +30,11 @@ static const Rule rules[] = {
 	/* app_id             title       tags mask     isfloating   alpha unfocus      monitor */
 	/* examples: */
 	{ "Gimp_EXAMPLE",	NULL,		0,	1,		default_opacity_unfocus,	-1 }, /* Start on currently visible tags floating, not tiled */
-	{ "firefox",		NULL,		0,	0,		1.00,				-1 },
-	{ "Vivaldi",		NULL,		0,	0,		1.00,				-1 },
-	{ "zen",		NULL,		0,	0,		1.00,				-1 },
-	{ "zathura", 		NULL,		0,	0,		1.00,				-1 },
+//	{ "firefox",		NULL,		0,	0,		1.00,				-1 },
+//	{ "Vivaldi",		NULL,		0,	0,		1.00,				-1 },
+//	{ "zen",		NULL,		0,	0,		1.00,				-1 },
+//	{ "zathura", 		NULL,		0,	0,		1.00,				-1 },
+	{ "foot",		NULL,		0,	0,		0.92f, 				-1 },
 	{ "spotify", 		NULL,		1 << 8,	0,		1.00,				-1 }, /* Start on ONLY tag "9" */
 };
 
@@ -66,8 +68,8 @@ static const struct xkb_rule_names xkb_rules = {
 	.layout = "latam" 
 };
 
-static const int repeat_rate = 35;
-static const int repeat_delay = 200;
+static const int repeat_rate = 45;
+static const int repeat_delay = 250;
 
 /* Trackpad */
 static const int tap_to_click = 1;
