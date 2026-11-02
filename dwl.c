@@ -2753,11 +2753,12 @@ rendermon(struct wl_listener *listener, void *data)
 	}
 	/* Render if no XDG clients have an outstanding resize and are visible on
 	 * this monitor. */
-	wl_list_for_each(c, &clients, link) {
-		wlr_scene_node_for_each_buffer(&c->scene_surface->node, scenebuffersetopacity, c);
-		if (c->resize && !c->isfloating && client_is_rendered_on_mon(c, m) && !client_is_stopped(c))
-			goto skip;
-	}
+	//TODO: uncommnet?
+//	wl_list_for_each(c, &clients, link) {
+//		wlr_scene_node_for_each_buffer(&c->scene_surface->node, scenebuffersetopacity, c);
+//		if (c->resize && !c->isfloating && client_is_rendered_on_mon(c, m) && !client_is_stopped(c))
+//			goto skip;
+//	}
 
 	wlr_scene_output_commit(m->scene_output, NULL);
 	clock_gettime(CLOCK_MONOTONIC, &now);

@@ -27,17 +27,10 @@ static const float default_opacity_focus   = 1.00f;
 static int log_level = WLR_ERROR;
 
 static const Rule rules[] = {
-<<<<<<< HEAD
-	/* app_id             title       tags mask     isfloating   monitor */
-	{ "Gimp_EXAMPLE",     NULL,       0,            1,           -1 }, /* Start on currently visible tags floating, not tiled */
-	{ "firefox_EXAMPLE",  NULL,       1 << 8,       0,           -1 }, /* Start on ONLY tag "9" */
-    /* default/example rule: can be changed but cannot be eliminated; at least one rule must exist */
-=======
 	/* app_id             title       tags mask     isfloating   alpha focus   alpha unfocus   monitor */
 	/* examples: */
 	{ "Gimp_EXAMPLE",     NULL,       0,            1,           1.00,         0.20,           -1 }, /* Start on currently visible tags floating, not tiled */
 	{ "firefox_EXAMPLE",  NULL,       1 << 8,       0,           1.00,         1.00,           -1 }, /* Start on ONLY tag "9" */
->>>>>>> Add client opacity focus
 };
 
 /* layout(s) */
