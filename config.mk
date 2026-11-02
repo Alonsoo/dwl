@@ -23,9 +23,8 @@ WLR_LIBS = `$(PKG_CONFIG) --libs wlroots-0.20`
 #WLR_INCS = -I/usr/include/pixman-1 -I/usr/include/elogind -I/usr/include/libdrm \
 #	-I$(PWD)/wlroots/0.20/include/wlroots-0.20
 #WLR_LIBS = -Wl,-rpath,$(PWD)/wlroots/0.20/lib64 -L$(PWD)/wlroots/0.20/lib64 -lwlroots-0.20
-
-XWAYLAND =
-XLIBS =
+XWAYLAND = -DXWAYLAND
+XLIBS = xcb xcb-icccm
 # Uncomment to build XWayland support
 #XWAYLAND = -DXWAYLAND
 #XLIBS = xcb xcb-icccm
