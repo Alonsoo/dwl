@@ -131,7 +131,8 @@ static const enum libinput_config_tap_button_map button_map = LIBINPUT_CONFIG_TA
 #define UPDATE_VOL_COMMAND "/home/alonso/repos/scripts/statusbar/volume.sh > /home/alonso/repos/scripts/statusbar/status-text/temp-volume && mv /home/alonso/repos/scripts/statusbar/status-text/temp-volume /home/alonso/repos/scripts/statusbar/status-text/volume"
 #define UPDATE_BAR_COMMAND "/home/alonso/repos/scripts/statusbar/bar.sh"
 static const char *termcmd[] = { "foot", NULL };
-static const char *menucmd[] = { "j4-dmenu-desktop", "--dmenu", "wmenu-colors -c -i -l 10", NULL };
+// static const char *menucmd[] = { "j4-dmenu-desktop", "--dmenu", "wmenu-colors -c -i -l 10", NULL };
+static const char *menucmd[] = { "rofi", "-show", "drun", NULL };
 static const char *wifipickercmd[] = { "/home/alonso/repos/scripts/wifi-picker", NULL };
 static const char *poweroptscmd[] = { "/home/alonso/repos/scripts/power-options.sh", NULL };
 static const char *volupcmd[] = { "/bin/sh", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ && " UPDATE_VOL_COMMAND " && " UPDATE_BAR_COMMAND, NULL };
@@ -142,6 +143,7 @@ static const char *brdowncmd[] = { "light", "-U", "5", NULL };
 static const char *kbdbrupcmd[] = { "light", "-s", "sysfs/leds/tpacpi::kbd_backlight", "-A", "50", NULL };
 static const char *kbdbrdowncmd[] = { "light", "-s", "sysfs/leds/tpacpi::kbd_backlight", "-U", "50", NULL };
 static const char *zathuracmd[] = { "/home/alonso/repos/scripts/zathura_search_open.sh", NULL };
+static const char *calccmd[] = { "/home/alonso/repos/scripts/calc.sh", NULL };
 
 static const Key keys[] = {
 	/* Note that Shift changes certain key codes: c -> C, 2 -> at, etc. */
@@ -151,6 +153,7 @@ static const Key keys[] = {
 	{ MODKEY,                    XKB_KEY_w,          spawn,          {.v = wifipickercmd} },
 	{ MODKEY,                    XKB_KEY_p,          spawn,          {.v = poweroptscmd} },
 	{ MODKEY,                    XKB_KEY_z,          spawn,          {.v = zathuracmd} },
+	{ MODKEY,                    XKB_KEY_c,          spawn,          {.v = calccmd} },
 	{ 0,			     XKB_KEY_XF86AudioRaiseVolume, spawn, {.v = volupcmd} },
 	{ 0, 			     XKB_KEY_XF86AudioLowerVolume, spawn,  {.v = voldowncmd} },
 	{ 0, 			     XKB_KEY_XF86AudioMute, spawn, 	 {.v = volmutecmd} },
